@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anzipedia | Desain Baru</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { 
+            background-color: #1e1e2e; 
+            color: #f1f5f9; 
+            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+            overflow-x: hidden;
+        }
+        
+        /* Background Code Effect */
+        .bg-code {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            font-family: monospace;
+            font-size: 14px;
+            color: #6272a4;
+            opacity: 0.4;
+            padding: 20px;
+            white-space: pre-wrap;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .glass-panel { 
+            background: rgba(30, 41, 59, 0.45); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.1); 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .dock {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
+
+        /* Hide scrollbar for grid */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Efek Background Kode -->
+    <div class="bg-code">
+def init_system():
+    modules = load_core()
+    for mod in modules:
+        mod.initialize(secure=True)
+        print(f"System {mod.name} loaded")
+
+async function fetchData(query) {
+    try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        return process(data);
+    } catch (error) {
+        handleError(error);
+    }
+}
+# Anzipedia Core v2.0.4
+# Initializing database connection...
+    </div>
+
+    <!-- Main App Container -->
+    <main class="glass-panel w-full max-w-[400px] h-[800px] max-h-[90vh] rounded-3xl flex flex-col relative overflow-hidden">
+        
+        <!-- Mac Window Controls -->
+        <div class="flex gap-2 p-5 absolute top-0 left-0 w-full z-20">
+            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+        </div>
+
+        <div class="p-6 pt-16 flex-1 flex flex-col h-full overflow-y-auto no-scrollbar pb-24 relative z-10" id="mainContent">
+            
+            <!-- Header -->
+            <h1 class="text-4xl font-extrabold text-center mb-8 tracking-wide drop-shadow-md text-white/95" style="font-family: 'Arial Black', sans-serif;">ANZIPEDIA</h1>
+            
+            <!-- Search Bar -->
+            <div class="relative mb-8 shadow-lg rounded-full">
+                <input type="text" id="searchInput" placeholder="Cari arsip, dokumen, atau sistem" 
+                    class="w-full bg-slate-800/80 text-white placeholder-gray-400 rounded-full py-4 pl-6 pr-16 outline-none border border-white/10 focus:border-blue-400 transition-colors text-sm font-medium shadow-inner"
+                    onkeypress="if(event.key === 'Enter') executeSearch()">
+                <button onclick="executeSearch()" class="absolute right-2 top-2 bottom-2 aspect-square bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors shadow-md">
+                    <i class="fa-solid fa-search text-white"></i>
+                </button>
+            </div>
+
+            <!-- Views Container -->
+            <div id="viewContainer" class="flex-1">
+                <!-- Home Grid View -->
+                <div id="homeView" class="grid grid-cols-2 gap-4 h-full content-start">
+                    <!-- Card 1 -->
+                    <div class="bg-[#0277bd] rounded-2xl p-4 flex flex-col justify-between aspect-square cursor-pointer hover:scale-[1.02] transition-transform shadow-lg border border-white/5">
+                        <i class="fa-solid fa-book-open text-3xl text-white/90 mb-4"></i>
+                        <h3 class="font-bold text-lg leading-tight text-white">Kamus<br>Istilah</h3>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-[#00c853] rounded-2xl p-4 flex flex-col justify-between aspect-square cursor-pointer hover:scale-[1.02] transition-transform shadow-lg border border-white/5">
+                        <i class="fa-solid fa-flask text-3xl text-white/90 mb-4"></i>
+                        <h3 class="font-bold text-lg leading-tight text-white">Eksperimen<br>Riset</h3>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-[#8e24aa] rounded-2xl p-4 flex flex-col justify-between aspect-square cursor-pointer hover:scale-[1.02] transition-transform shadow-lg border border-white/5">
+                        <i class="fa-solid fa-box-archive text-3xl text-white/90 mb-4"></i>
+                        <h3 class="font-bold text-lg leading-tight text-white">Arsip<br>Data</h3>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-[#ff8f00] rounded-2xl p-4 flex flex-col justify-between aspect-square cursor-pointer hover:scale-[1.02] transition-transform shadow-lg border border-white/5">
+                        <i class="fa-solid fa-clock-rotate-left text-3xl text-white/90 mb-4"></i>
+                        <h3 class="font-bold text-lg leading-tight text-white">Riwayat<br>Sistem</h3>
+                    </div>
+                </div>
+
+                <!-- Search Results View (Hidden by default) -->
+                <div id="searchView" class="hidden flex-col gap-4 h-full">
+                    <button onclick="showHome()" class="text-sm text-blue-400 hover:text-blue-300 flex items-center gap-2 w-fit mb-2">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+                    </button>
+                    
+                    <!-- Panel Kamus -->
+                    <div class="bg-slate-800/80 rounded-2xl p-5 border border-white/10 shadow-lg">
+                        <div class="flex justify-between items-center border-b border-white/10 pb-2 mb-3">
+                            <h2 class="text-lg font-bold text-indigo-400"><i class="fa-solid fa-book-open mr-2"></i>Kamus</h2>
+                            <a id="btnBablaPanel" href="#" target="_blank" class="text-[10px] bg-indigo-900/50 text-indigo-200 px-2 py-1 rounded hover:bg-indigo-800 transition">Cari di bab.la</a>
+                        </div>
+                        <div id="defResult" class="text-sm text-gray-300 leading-relaxed min-h-[60px]">
+                            Menunggu pencarian...
+                        </div>
+                    </div>
+
+                    <!-- Panel Wikipedia -->
+                    <div class="bg-slate-800/80 rounded-2xl p-5 border border-white/10 shadow-lg">
+                        <h2 class="text-lg font-bold text-blue-400 mb-3 border-b border-white/10 pb-2"><i class="fa-brands fa-wikipedia-w mr-2"></i>Ensiklopedia</h2>
+                        <div id="wikiResult" class="text-sm text-gray-300 leading-relaxed min-h-[60px]">
+                            Menunggu pencarian...
+                        </div>
+                    </div>
+
+                    <!-- Panel Jurnal Scholar -->
+                    <div class="bg-slate-800/80 rounded-2xl p-5 border border-white/10 shadow-lg mb-8">
+                        <h2 class="text-lg font-bold text-green-400 mb-3 border-b border-white/10 pb-2"><i class="fa-solid fa-graduation-cap mr-2"></i>Jurnal Riset</h2>
+                        <div id="scholarResult" class="flex flex-col gap-3 min-h-[60px]">
+                            <p class="text-sm text-gray-400">Menunggu pencarian...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Bottom Navigation Dock -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 dock flex gap-2 p-2.5 rounded-2xl shadow-2xl w-[90%] max-w-[360px] justify-between">
+            <button onclick="showHome()" title="Beranda" class="w-10 h-10 bg-white rounded-xl text-gray-800 flex items-center justify-center text-lg shadow-sm hover:bg-gray-200 transition-colors">
+                <i class="fa-solid fa-house"></i>
+            </button>
+            <button onclick="openExternal('babla')" title="Bab.la Dictionary" class="w-10 h-10 bg-white rounded-xl text-[#00a5d4] flex items-center justify-center text-lg shadow-sm hover:bg-gray-200 transition-colors">
+                <i class="fa-solid fa-language"></i>
+            </button>
+            <button onclick="openExternal('youtube')" title="YouTube" class="w-10 h-10 bg-white rounded-xl text-red-600 flex items-center justify-center text-lg shadow-sm hover:bg-gray-200 transition-colors">
+                <i class="fa-brands fa-youtube"></i>
+            </button>
+            <button onclick="openExternal('academia')" title="Academia.edu" class="w-10 h-10 bg-white rounded-xl text-gray-800 flex items-center justify-center text-lg shadow-sm hover:bg-gray-200 transition-colors">
+                <i class="fa-solid fa-building-columns"></i>
+            </button>
+            <button onclick="openExternal('scribd')" title="Scribd" class="w-10 h-10 bg-white rounded-xl text-[#1a7bba] flex items-center justify-center text-lg shadow-sm hover:bg-gray-200 transition-colors">
+                <i class="fa-brands fa-scribd"></i>
+            </button>
+            <button onclick="openExternal('scholar')" title="Google Scholar" class="w-10 h-10 bg-white rounded-xl text-blue-500 flex items-center justify-center text-lg shadow-sm hover:bg-gray-200 transition-colors">
+                <i class="fa-brands fa-google"></i>
+            </button>
+        </div>
+    </main>
+
+    <script>
+        // Navigasi UI
+        const homeView = document.getElementById('homeView');
+        const searchView = document.getElementById('searchView');
+        const searchInput = document.getElementById('searchInput');
+
+        function showHome() {
+            homeView.classList.remove('hidden');
+            searchView.classList.add('hidden');
+            searchView.classList.remove('flex');
+            searchInput.value = '';
+        }
+
+        function showSearchResults() {
+            homeView.classList.add('hidden');
+            searchView.classList.remove('hidden');
+            searchView.classList.add('flex');
+        }
+
+        // Buka link eksternal dari Toolbar bawah
+        function openExternal(platform) {
+            const query = searchInput.value.trim();
+            let url = '';
+            
+            switch(platform) {
+                case 'babla':
+                    url = query ? `https://id.bab.la/kamus/indonesia-inggris/${encodeURIComponent(query)}` : 'https://id.bab.la/';
+                    break;
+                case 'youtube':
+                    url = query ? `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}` : 'https://www.youtube.com/';
+                    break;
+                case 'academia':
+                    url = query ? `https://www.academia.edu/search?q=${encodeURIComponent(query)}` : 'https://www.academia.edu/';
+                    break;
+                case 'scribd':
+                    url = query ? `https://www.scribd.com/search?query=${encodeURIComponent(query)}` : 'https://www.scribd.com/';
+                    break;
+                case 'scholar':
+                    url = query ? `https://scholar.google.com/scholar?q=${encodeURIComponent(query)}` : 'https://scholar.google.com/';
+                    break;
+            }
+            
+            if (url) {
+                window.open(url, '_blank');
+            }
+        }
+
+        // Fungsi Pencarian Utama
+        async function executeSearch() {
+            const query = searchInput.value.trim();
+            if (!query) return;
+
+            showSearchResults();
+            
+            const defDiv = document.getElementById('defResult');
+            const wikiDiv = document.getElementById('wikiResult');
+            const scholarDiv = document.getElementById('scholarResult');
+            
+            // Set loading state
+            defDiv.innerHTML = '<div class="flex gap-2 items-center text-gray-400"><i class="fa-solid fa-circle-notch fa-spin"></i> Mencari definisi...</div>';
+            wikiDiv.innerHTML = '<div class="flex gap-2 items-center text-gray-400"><i class="fa-solid fa-circle-notch fa-spin"></i> Mencari...</div>';
+            scholarDiv.innerHTML = '<div class="flex gap-2 items-center text-gray-400"><i class="fa-solid fa-circle-notch fa-spin"></i> Mencari paper...</div>';
+
+            // Update link tombol khusus bab.la di dalam panel Kamus
+            document.getElementById('btnBablaPanel').href = `https://id.bab.la/kamus/indonesia-inggris/${encodeURIComponent(query)}`;
+
+            // Eksekusi API secara paralel
+            Promise.all([fetchDef(query), fetchWiki(query), fetchScholar(query)]);
+        }
+
+        // API Kamus / Definisi
+        async function fetchDef(q) {
+            const div = document.getElementById('defResult');
+            try {
+                const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(q)}`);
+                const data = await res.json();
+                
+                if (data.title) {
+                    div.innerHTML = `<p class="italic text-gray-400">Definisi instan tidak ditemukan. Klik tombol <span class="text-indigo-400">Cari di bab.la</span> untuk mencari manual di web.</p>`;
+                } else {
+                    const entry = data[0];
+                    div.innerHTML = `<h3 class="font-bold text-base text-white capitalize">${entry.word}</h3>
+                                     <p class="text-xs text-indigo-300 italic mb-2">${entry.phonetic || ''}</p>
+                                     <p>${entry.meanings[0].definitions[0].definition}</p>`;
+                }
+            } catch (e) { 
+                div.innerHTML = "<p class='text-red-400'>Layanan kamus sedang sibuk.</p>"; 
+            }
+        }
+
+        // API Wikipedia
+        async function fetchWiki(q) {
+            const div = document.getElementById('wikiResult');
+            try {
+                const res = await fetch(`https://id.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`);
+                const data = await res.json();
+                div.innerHTML = data.extract ? `<p>${data.extract}</p>` : "<p class='text-gray-400 italic'>Tidak ada data di Wikipedia.</p>";
+            } catch (e) { 
+                div.innerHTML = "<p class='text-red-400'>Gagal memuat ensiklopedia.</p>"; 
+            }
+        }
+
+        // API Google Scholar (via Semantic Scholar)
+        async function fetchScholar(q) {
+            const box = document.getElementById('scholarResult');
+            try {
+                const res = await fetch(`https://api.semanticscholar.org/graph/v1/paper/search?query=${encodeURIComponent(q)}&limit=3&fields=title,url,year`);
+                const data = await res.json();
+                
+                box.innerHTML = '';
+                if (data.data?.length > 0) {
+                    data.data.forEach(p => {
+                        box.innerHTML += `
+                        <div class="bg-slate-900/50 p-3 rounded-lg border border-white/5 hover:border-green-500/30 transition-colors">
+                            <h3 class="font-medium text-sm text-green-300 line-clamp-2">${p.title}</h3>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-xs text-gray-500">${p.year || 'N/A'}</span>
+                                <a href="${p.url}" target="_blank" class="text-xs text-green-400 hover:text-green-300 font-medium">Baca Paper <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                            </div>
+                        </div>`;
+                    });
+                } else {
+                    box.innerHTML = "<p class='text-gray-400 italic text-sm'>Tidak ada jurnal terkait ditemukan.</p>";
+                }
+            } catch (e) { 
+                box.innerHTML = "<p class='text-red-400 text-sm'>Layanan riset sedang offline.</p>"; 
+            }
+        }
+    </script>
+</body>
+</html>
